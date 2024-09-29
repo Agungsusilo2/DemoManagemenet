@@ -1,0 +1,47 @@
+###
+POST localhost:8080/api/users
+Accept: application/json
+Content-Type: application/json
+
+{
+  "username": "agung",
+  "password": "agung",
+  "role": "admin"
+}
+
+###
+POST localhost:8080/api/auth
+Accept: application/json
+Content-Type: application/json
+
+{
+  "username": "agung",
+  "password": "budi"
+}
+
+###
+POST localhost:8080/api/transaksi/out
+Accept: application/json
+Content-Type: application/json
+
+{
+  "date": 1727538591,
+  "type": "keluar",
+  "barangId": "9297b81a-4c38-4738-839d-f85373e6f6c6",
+  "supplierId": "10f077e2-09b8-45e9-af5f-ba75ebcbcfa1",
+  "total": 30
+}
+
+###
+DELETE http://localhost:8080/api/users/1ac01271-a238-4be0-8062-97931b986fee
+
+###
+PUT http://localhost:8080/api/users/1b905f3e-2c76-4739-90a4-925367944eaf
+Accept: application/json
+Content-Type: application/json
+
+{
+  "username": "budi",
+  "password": "budi123",
+  "oldPassword": "budi"
+}

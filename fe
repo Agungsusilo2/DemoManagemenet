@@ -1,0 +1,69 @@
+1. Halaman Login
+Komponen:
+Input Username
+Input Password
+Tombol Login
+Deskripsi: Halaman ini memungkinkan user (admin/operator) untuk login ke sistem.
+2. Dashboard
+Komponen:
+Ringkasan stok barang (barang terendah, stok menipis).
+Ringkasan transaksi terbaru (termasuk barang masuk dan keluar).
+Navigasi cepat (tombol ke manajemen barang, transaksi, laporan, supplier).
+Deskripsi: Halaman ini berfungsi sebagai halaman utama setelah login, menampilkan ikhtisar dari aktivitas gudang seperti stok, transaksi terbaru, dan statistik penting.
+3. Halaman Manajemen Barang
+Komponen:
+Tabel daftar barang:
+Kolom: Nama Barang, Kategori, Stok, Harga, Aksi (Edit/Hapus).
+Tombol "Tambah Barang" (untuk menambahkan barang baru).
+Form input barang:
+Nama Barang
+Kategori Barang
+Harga
+Stok
+Deskripsi
+Fitur pencarian barang.
+Deskripsi: Halaman ini memungkinkan user untuk melihat daftar barang, menambahkan barang baru, mengedit, atau menghapus barang yang ada.
+4. Halaman Transaksi Barang
+Komponen:
+Form input transaksi:
+Pilih Barang (dropdown)
+Jenis Transaksi (Masuk/Keluar)
+Jumlah Barang
+Tanggal Transaksi
+Supplier (jika transaksi masuk)
+Tabel transaksi:
+Kolom: Tanggal, Nama Barang, Jenis Transaksi, Jumlah, Supplier, Aksi (Lihat Detail).
+Fitur pencarian dan filter transaksi (berdasarkan tanggal atau barang).
+Deskripsi: Halaman untuk mencatat transaksi barang masuk dan keluar, sekaligus melihat riwayat transaksi yang pernah dilakukan.
+5. Halaman Manajemen Supplier
+Komponen:
+Tabel daftar supplier:
+Kolom: Nama Supplier, Kontak, Alamat, Aksi (Edit/Hapus).
+Tombol "Tambah Supplier".
+Form input supplier:
+Nama Supplier
+Kontak Supplier
+Alamat Supplier
+Fitur pencarian supplier.
+Deskripsi: Halaman ini digunakan untuk mengelola data supplier yang menyediakan barang. Pengguna bisa menambahkan, mengedit, atau menghapus data supplier.
+6. Halaman Laporan
+Komponen:
+Pilihan jenis laporan:
+Laporan Stok (menampilkan barang dengan stok menipis).
+Laporan Transaksi (daftar transaksi dalam rentang waktu tertentu).
+Filter laporan berdasarkan tanggal atau barang.
+Tombol "Cetak Laporan" atau "Ekspor ke Excel".
+Deskripsi: Halaman untuk menghasilkan laporan stok barang atau laporan transaksi dalam rentang waktu tertentu, serta memberikan opsi untuk mencetak atau mengekspor laporan.
+7. Halaman Pengaturan User (Opsional)
+Komponen:
+Tabel daftar user:
+Kolom: Username, Role, Aksi (Edit/Hapus).
+Tombol "Tambah User".
+Form input user:
+Username
+Password
+Role (Admin/Operator)
+Deskripsi: Digunakan untuk mengelola pengguna yang memiliki akses ke sistem.
+Alur Navigasi (Flow):
+Login → Dashboard → Bisa menuju Manajemen Barang, Manajemen Supplier, Transaksi, atau Laporan.
+Pada halaman masing-masing (barang, supplier, transaksi), ada fitur pencarian, filter, dan form input yang memudahkan interaksi pengguna.
