@@ -10,7 +10,6 @@ import org.springframework.data.domain.Page;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
-import javax.print.attribute.standard.Media;
 import java.util.List;
 
 @RestController
@@ -51,6 +50,11 @@ public class BarangController {
         return WebResponse.<List<BarangResponse>>builder().data(all).build();
     }
 
+    @GetMapping(path = "/api/barang/count")
+    public WebResponse<Long> getCount(){
+        return WebResponse.<Long>builder().data(barangService.getCount()).build();
+    }
+
     @GetMapping(path = "/api/barang/search")
     public WebResponse<List<BarangResponse>> search(
             @RequestParam(value = "keyword") String keyword,
@@ -66,5 +70,9 @@ public class BarangController {
                 .build();
     }
 
+    @GetMapping("/api/barang/top3-stock-ordered")
+    public List<BarangResponse> getTop3BarangOrderedByStock() {
+        return barangService.getBarangStockLessDate();
+    }
 }
 

@@ -35,4 +35,3 @@ create table User(
     password varchar(100),
     role enum('admin','operator')
 );
-

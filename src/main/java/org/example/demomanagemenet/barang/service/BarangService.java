@@ -102,6 +102,17 @@ public class BarangService {
         return barangList.stream().map(this::toResponseJson).toList();
     }
 
+    @Transactional(readOnly = true)
+    public Long getCount(){
+        return barangRepository.count();
+    }
+
+
+    @Transactional(readOnly = true)
+    public List<BarangResponse> getBarangStockLessDate(){
+        List<Barang> allByOrderByStockAsc = barangRepository.findTop3ByOrderByStockAsc();
+        return allByOrderByStockAsc.stream().map(this::toResponseJson).toList();
+    }
 
     private BarangResponse toResponseJson(Barang barang){
         BarangResponse barangResponse = new BarangResponse();

@@ -25,10 +25,9 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.server.ResponseStatusException;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
-import java.util.UUID;
+import java.time.*;
+import java.time.temporal.ChronoField;
+import java.util.*;
 
 @Service
 public class TransaksiService {
@@ -167,6 +166,25 @@ public class TransaksiService {
 
         return new PageImpl<>(transaksiResponses, pageable, all.getTotalElements());
     }
+    @Transactional(readOnly = true)
+    public Long countByDate() {
+
+        long startOfDay = LocalDate.now().atStartOfDay(ZoneId.systemDefault()).toEpochSecond();
+        long endOfDay = LocalDate.now().atTime(23, 59, 59).atZone(ZoneId.systemDefault()).toEpochSecond();
+
+        Long count = transaksiRepository.findByDateBetween(startOfDay, endOfDay).stream()
+                .count();
+
+        return count;
+    }
+
+    @Transactional(readOnly = true)
+    public List<TransaksiResponse> getTop3RecentTransaksi() {
+        List<Transaksi> transaksiList = transaksiRepository.findTop3ByOrderByDateDesc();
+
+        return transaksiList.stream().map(this::toResponseJson).toList();
+    }
+
 
     private TransaksiResponse toResponseJson(Transaksi transaksi) {
         TransaksiResponse response = new TransaksiResponse();

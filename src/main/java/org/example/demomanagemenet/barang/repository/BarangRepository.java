@@ -10,4 +10,9 @@ import java.util.List;
 @Repository
 public interface BarangRepository extends JpaRepository<Barang, String> , JpaSpecificationExecutor<Barang> {
     List<Barang> findByStockLessThan(int limit);
+
+    @Override
+    long count();
+
+    List<Barang> findTop3ByOrderByStockAsc();
 }

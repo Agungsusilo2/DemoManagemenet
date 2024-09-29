@@ -1,6 +1,6 @@
 package org.example.demomanagemenet.transaksi.controller;
 
-import org.example.demomanagemenet.transaksi.entity.Transaksi;
+
 import org.example.demomanagemenet.transaksi.model.ListTransaksiRequest;
 import org.example.demomanagemenet.transaksi.model.TransaksiRequest;
 import org.example.demomanagemenet.transaksi.model.TransaksiResponse;
@@ -60,5 +60,15 @@ public class TransaksiController {
     public WebResponse<List<TransaksiResponse>> search(@RequestParam(name = "keyword") String keyword,@RequestParam(name = "page",defaultValue = "0")int page,@RequestParam(name = "size",defaultValue = "15")int size) {
         Page<TransaksiResponse> searched = transaksiService.search(new ListTransaksiRequest(page, size), keyword);
         return WebResponse.<List<TransaksiResponse>>builder().data(searched.getContent()).build();
+    }
+
+    @GetMapping("/count")
+    public WebResponse<Long> count() {
+        Long count = transaksiService.countByDate();
+        return WebResponse.<Long>builder().data(count).build();
+    }
+    @GetMapping("{/top3-recent}")
+    public List<TransaksiResponse> getTop3RecentTransaksi() {
+        return transaksiService.getTop3RecentTransaksi();
     }
 }

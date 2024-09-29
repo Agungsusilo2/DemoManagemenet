@@ -9,12 +9,11 @@ import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
-import java.util.Optional;
 
 @Repository
 public interface TransaksiRepository extends JpaRepository<Transaksi, String>, JpaSpecificationExecutor<Transaksi> {
-    Optional<List<Transaksi>> findAllByType(Type type);
     List<Transaksi> findByDateBetween(long from, long to);
     List<Transaksi> findByType(Type type);
     List<Transaksi> findBySupplier(Supplier supplier);
+    List<Transaksi> findTop3ByOrderByDateDesc();
 }
