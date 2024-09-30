@@ -67,7 +67,7 @@ public class TransaksiController {
         Long count = transaksiService.countByDate();
         return WebResponse.<Long>builder().data(count).build();
     }
-    @GetMapping("{/top3-recent}")
+    @GetMapping("/top3-recent")
     public List<TransaksiResponse> getTop3RecentTransaksi() {
         return transaksiService.getTop3RecentTransaksi();
     }
