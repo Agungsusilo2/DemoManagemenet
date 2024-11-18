@@ -1,0 +1,58 @@
+@startuml
+' Definisi kelas untuk Pembeli
+Entity Pembeli {
+  +ID_buyer : int <PK>
+  +Nama : String
+}
+
+' Definisi kelas untuk Penjual
+Entity Penjual {
+  +ID_penjual : int <PK>
+  +Nama : String
+}
+
+' Definisi kelas untuk Barang
+Entity Barang {
+  +ID_barang : int <PK>
+  +ID_penjual : int <FK>
+  +Nama : String
+  +Harga : double
+}
+
+' Definisi kelas untuk Transaksi
+Entity Transaksi {
+  +ID_transaksi : int <PK>
+  +Jumlah_Barang : int
+  +Total_Transaksi : double
+  +Metode_Pembayaran : String
+  +ID_buyer : int <FK>
+}
+
+' Definisi kelas untuk Pembayaran
+Entity Pembayaran_Hutang {
+  +ID_bayar : int <PK>
+  +Jumlah_Bayar : double
+  +ID_buyer : int <FK>
+}
+
+' Definisi tabel perantara untuk Transaksi dan Barang
+Entity DetailTransaksi {
+  +ID_transaksi : int <PK>
+  +ID_barang : int <FK>
+  +Jumlah : int
+}
+
+' Relasi antara Pembeli dan Transaksi
+Pembeli "1" -- "N" Transaksi : melakukan
+
+' Relasi antara Transaksi dan Barang melalui tabel perantara
+Transaksi "1" -- "N" DetailTransaksi : terdiri dari
+Barang "1" -- "N" DetailTransaksi : melibatkan
+
+' Relasi antara Penjual dan Barang
+Penjual "1" -- "N" Barang : menjual
+
+' Relasi antara Pembeli dan Pembayaran
+Pembeli "1" -- "N" Pembayaran_Hutang  : melakukan
+
+@enduml

@@ -25,8 +25,8 @@ public class UserController {
 
     @PostMapping(path = "/api/user/auth",consumes = MediaType.APPLICATION_JSON_VALUE,produces = MediaType.APPLICATION_JSON_VALUE)
     private WebResponse<String> login(@RequestBody LoginRequest loginRequest){
-        userService.Login(loginRequest);
-        return WebResponse.<String>builder().data("OK").build();
+        String logined = userService.Login(loginRequest);
+        return WebResponse.<String>builder().data(logined).build();
     }
 
     @GetMapping(path = "/api/users")

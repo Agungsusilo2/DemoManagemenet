@@ -61,7 +61,8 @@ public class BarangService {
 
     @Transactional
     public void delete(String id){
-        barangRepository.deleteById(id);
+        Barang barang = barangRepository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Barang tidak ditemukan"));
+        barangRepository.delete(barang);
     }
 
     @Transactional

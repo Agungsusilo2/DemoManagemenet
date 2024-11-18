@@ -1,28 +1,31 @@
 ###
-POST localhost:8080/api/users
+POST localhost:8080/api/user/register
 Accept: application/json
 Content-Type: application/json
 
 {
-  "username": "agung",
-  "password": "agung",
+  "username": "moro",
+  "password": "moro",
   "role": "admin"
 }
 
+
+
 ###
-POST localhost:8080/api/auth
+POST localhost:8080/api/user/auth
 Accept: application/json
 Content-Type: application/json
 
 {
-  "username": "agung",
-  "password": "budi"
+  "username": "moro",
+  "password": "moro"
 }
 
 ###
 POST localhost:8080/api/transaksi/out
 Accept: application/json
 Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VyIERldGFpbCIsImlzcyI6Ikd1ZGFuZyBNYW5hZ2VtZW50IiwiaWF0IjoxNzI4OTE0OTk4LCJ1c2VybmFtZSI6Impva28ifQ.o5uD349kRcgzbygAfAC6pSi7ciNqQDPJhN_7aTBnLI8
 
 {
   "date": 1727538591,
@@ -44,4 +47,14 @@ Content-Type: application/json
   "username": "budi",
   "password": "budi123",
   "oldPassword": "budi"
+}
+
+###
+POST localhost:8080/api/user/auth
+Accept: application/json
+Content-Type: application/json
+
+{
+  "username": "joko",
+  "password": "joko"
 }

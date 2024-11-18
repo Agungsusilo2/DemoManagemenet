@@ -178,12 +178,28 @@ public class TransaksiService {
         return count;
     }
 
+//    @Transactional(readOnly = true)
+//    public Map<LocalDate, Long> countByDateWeek() {
+//        Map<LocalDate, Long> dailyTransactionCounts = new HashMap<>();
+//        LocalDate now = LocalDate.now();
+//        for (int i = 0; i < 7; i++) {
+//            LocalDate currentDate = now.minusDays(i);
+//            long epochSecond = currentDate.atStartOfDay(ZoneOffset.UTC).toEpochSecond();
+//            Date date = new Date(epochSecond * 1000);  // Multiply by 1000 to convert from seconds to milliseconds
+//            long count = transaksiRepository.findAllByDateContainingOrderByDateAsc(date).stream().count();
+//            dailyTransactionCounts.put(currentDate, count);
+//        }
+//        return dailyTransactionCounts;
+//    }
+
+
     @Transactional(readOnly = true)
     public List<TransaksiResponse> getTop3RecentTransaksi() {
         List<Transaksi> transaksiList = transaksiRepository.findTop3ByOrderByDateDesc();
 
         return transaksiList.stream().map(this::toResponseJson).toList();
     }
+
 
 
     private TransaksiResponse toResponseJson(Transaksi transaksi) {

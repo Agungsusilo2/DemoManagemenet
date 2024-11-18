@@ -11,7 +11,9 @@ import org.springframework.data.domain.Page;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api/transaksi")
@@ -55,6 +57,11 @@ public class TransaksiController {
         List<TransaksiResponse> transaksiResponses = transaksiService.getAll(new ListTransaksiRequest(page, size));
         return WebResponse.<List<TransaksiResponse>>builder().data(transaksiResponses).build();
     }
+//    @GetMapping("/graph")
+//    public WebResponse<Map<LocalDate, Long>> getGraph() {
+//        Map<LocalDate, Long> localDateLongMap = transaksiService.countByDateWeek();
+//        return WebResponse.<Map<LocalDate, Long>>builder().data(localDateLongMap).build();
+//    }
 
     @GetMapping("/search")
     public WebResponse<List<TransaksiResponse>> search(@RequestParam(name = "keyword") String keyword,@RequestParam(name = "page",defaultValue = "0")int page,@RequestParam(name = "size",defaultValue = "15")int size) {

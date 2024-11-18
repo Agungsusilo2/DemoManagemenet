@@ -3,6 +3,7 @@ package org.example.demomanagemenet.user.service;
 import jakarta.persistence.criteria.Predicate;
 import org.example.demomanagemenet.barang.model.ListBarangRequest;
 import org.example.demomanagemenet.model.ValidationService;
+import org.example.demomanagemenet.security.JwtUtil;
 import org.example.demomanagemenet.user.entity.User;
 import org.example.demomanagemenet.user.model.*;
 import org.example.demomanagemenet.user.repository.UserRepository;
@@ -18,10 +19,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.server.ResponseStatusException;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
-import java.util.UUID;
+import java.util.*;
 
 @Service
 public class UserService {
@@ -30,6 +28,8 @@ public class UserService {
 
     @Autowired
     private ValidationService validationService;
+    @Autowired
+    private JwtUtil jwtUtil;
 
     @Transactional
     public void registerUser(RegisterRequest registerRequest) {
@@ -43,13 +43,13 @@ public class UserService {
     }
 
     @Transactional(readOnly = true)
-    public User Login(LoginRequest loginRequest) {
+    public String Login(LoginRequest loginRequest) {
         validationService.validate(loginRequest);
         User user = userRepository.findByUsername(loginRequest.getUsername()).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Incorrect username or password"));
         if (!BCrypt.checkpw(loginRequest.getPassword(), user.getPassword())) {
             throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Incorrect username or password");
         }
-        return user;
+        return jwtUtil.generateToken(user.getUsername());
     }
 
     @Transactional(readOnly = true)
