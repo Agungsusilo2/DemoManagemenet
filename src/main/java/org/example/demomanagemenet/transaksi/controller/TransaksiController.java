@@ -78,4 +78,11 @@ public class TransaksiController {
     public List<TransaksiResponse> getTop3RecentTransaksi() {
         return transaksiService.getTop3RecentTransaksi();
     }
+
+    @GetMapping("/graph")
+    public WebResponse<Map<Integer,Integer>> graph() {
+        Map<Integer, Integer> countTotalInWeek = transaksiService.getCountTotalInWeek();
+        return WebResponse.<Map<Integer,Integer>>builder()
+                .data(countTotalInWeek).build();
+    }
 }

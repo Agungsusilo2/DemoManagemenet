@@ -1,8 +1,6 @@
 package org.example.demomanagemenet.supplier.service;
 
 import jakarta.persistence.criteria.Predicate;
-import org.example.demomanagemenet.barang.entity.Barang;
-import org.example.demomanagemenet.barang.model.BarangResponse;
 import org.example.demomanagemenet.model.ValidationService;
 import org.example.demomanagemenet.supplier.entity.Supplier;
 import org.example.demomanagemenet.supplier.model.ListSupplierRequest;

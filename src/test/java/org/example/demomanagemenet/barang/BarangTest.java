@@ -1,65 +1,54 @@
 package org.example.demomanagemenet.barang;
 
 import org.example.demomanagemenet.barang.entity.Barang;
-import org.junit.jupiter.api.Assertions;
+import org.example.demomanagemenet.barang.repository.BarangRepository;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.boot.test.context.SpringBootTest;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.LocalTime;
-import java.time.ZoneOffset;
+import java.util.Optional;
 
+import static org.junit.jupiter.api.Assertions.*;
+
+@SpringBootTest
 public class BarangTest {
-    @Test
-    public void testGetSetNama() {
-        Barang barang = new Barang();
-        barang.setName("Gula");
-        Assertions.assertEquals("Gula", barang.getName());
-    }
 
-    @Test
-    public void testGetSetStok() {
-        Barang barang = new Barang();
+    @Autowired
+    private BarangRepository barangRepository;
+
+    private Barang barang;
+
+    @BeforeEach
+    public void setUp() {
+        barang = new Barang();
+        barang.setId("123");
+        barang.setName("Barang Test");
+        barang.setCategory("Elektronik");
+        barang.setPrice(500000);
         barang.setStock(100);
-        Assertions.assertEquals(100, barang.getStock());
+        barang.setDescription("Barang untuk pengujian");
     }
 
     @Test
-    public void testGetSetDescription() {
-        Barang barang = new Barang();
-        barang.setDescription("Barang ini mengandung banyak gula, agar diperhatikan");
-        Assertions.assertEquals("Barang ini mengandung banyak gula, agar diperhatikan", barang.getDescription());
+    public void testSaveBarang() {
+        Barang savedBarang = barangRepository.save(barang);
+
+        assertNotNull(savedBarang.getId());
+        assertEquals(barang.getName(), savedBarang.getName());
+        assertEquals(barang.getCategory(), savedBarang.getCategory());
     }
 
     @Test
-    public void testGetSetCategory() {
-        Barang barang = new Barang();
-        barang.setCategory("Minuman");
-        Assertions.assertEquals("Minuman", barang.getCategory());
-    }
+    public void testFindBarangById() {
+        barangRepository.save(barang);
 
-    @Test
-    public void testGetSetPrice() {
-        Barang barang = new Barang();
-        barang.setPrice(200000);
-        Assertions.assertEquals(200000, barang.getPrice());
-    }
+        Optional<Barang> foundBarang = barangRepository.findById("123");
 
-    @Test
-    public void testGetSetCreated() {
-        Barang barang = new Barang();
-        barang.setCreated(LocalDateTime.now());
-        Assertions.assertEquals(LocalDateTime.now(), barang.getCreated());
+        assertTrue(foundBarang.isPresent());
+        assertEquals(barang.getName(), foundBarang.get().getName());
+        assertEquals(barang.getPrice(), foundBarang.get().getPrice());
     }
-
-    @Test
-    public void testCountTransactionDate() {
-        LocalDate now = LocalDate.now();
-        long[] dates = new long[7];
-        for (int i = 0; i < 7; i++) {
-            dates[i] = now.minusDays(i).atStartOfDay(ZoneOffset.UTC).toEpochSecond();
-            System.out.println(dates[i]);
-        }
-    }
-
 }

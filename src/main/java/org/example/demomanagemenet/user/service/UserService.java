@@ -49,7 +49,7 @@ public class UserService {
         if (!BCrypt.checkpw(loginRequest.getPassword(), user.getPassword())) {
             throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Incorrect username or password");
         }
-        return jwtUtil.generateToken(user.getUsername());
+        return jwtUtil.generateToken(user.getUsername(),user.getRole().toString());
     }
 
     @Transactional(readOnly = true)

@@ -4,57 +4,267 @@ Accept: application/json
 Content-Type: application/json
 
 {
-  "username": "moro",
-  "password": "moro",
-  "role": "admin"
+  "username": "qicong",
+  "password": "qicong",
+  "role": "operator"
 }
 
 
+###
+POST localhost:8080/api/user/register
+Accept: application/json
+Content-Type: application/json
+
+{
+  "username": "muis",
+  "password": "muis",
+  "role": "admin"
+}
 
 ###
+
 POST localhost:8080/api/user/auth
 Accept: application/json
 Content-Type: application/json
 
 {
-  "username": "moro",
-  "password": "moro"
+  "username": "qicong",
+  "password": "qicong"
+}
+
+
+###
+
+GET localhost:8080/api/barang
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VyIERldGFpbCIsInJvbGUiOiJhZG1pbiIsImlzcyI6Ikd1ZGFuZyBNYW5hZ2VtZW50IiwiZXhwIjoxNzM0MTAwMDYzLCJpYXQiOjE3MzQwOTY0NjMsInVzZXJuYW1lIjoibXVpcyJ9.PiJO80j442HGo5UxTAooJG8zvT7wNxS-ZuNBtBygD2Q
+
+###
+
+GET localhost:8080/api/barang/count
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VyIERldGFpbCIsInJvbGUiOiJhZG1pbiIsImlzcyI6Ikd1ZGFuZyBNYW5hZ2VtZW50IiwiZXhwIjoxNzM0MTAwMDYzLCJpYXQiOjE3MzQwOTY0NjMsInVzZXJuYW1lIjoibXVpcyJ9.PiJO80j442HGo5UxTAooJG8zvT7wNxS-ZuNBtBygD2Q
+
+###
+
+GET localhost:8080/api/barang/search?keyword=susu
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VyIERldGFpbCIsInJvbGUiOiJhZG1pbiIsImlzcyI6Ikd1ZGFuZyBNYW5hZ2VtZW50IiwiZXhwIjoxNzM0MTAwMDYzLCJpYXQiOjE3MzQwOTY0NjMsInVzZXJuYW1lIjoibXVpcyJ9.PiJO80j442HGo5UxTAooJG8zvT7wNxS-ZuNBtBygD2Q
+
+###
+
+GET localhost:8080/api/barang/top3-stock-ordered
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VyIERldGFpbCIsInJvbGUiOiJhZG1pbiIsImlzcyI6Ikd1ZGFuZyBNYW5hZ2VtZW50IiwiZXhwIjoxNzM0MTAwMDYzLCJpYXQiOjE3MzQwOTY0NjMsInVzZXJuYW1lIjoibXVpcyJ9.PiJO80j442HGo5UxTAooJG8zvT7wNxS-ZuNBtBygD2Q
+
+
+###
+
+GET localhost:8080/api/barang/89459637-9300-4f45-abe5-8b27fda51052
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VyIERldGFpbCIsInJvbGUiOiJhZG1pbiIsImlzcyI6Ikd1ZGFuZyBNYW5hZ2VtZW50IiwiZXhwIjoxNzM0MTAwMDYzLCJpYXQiOjE3MzQwOTY0NjMsInVzZXJuYW1lIjoibXVpcyJ9.PiJO80j442HGo5UxTAooJG8zvT7wNxS-ZuNBtBygD2Q
+
+###
+
+POST localhost:8080/api/barang
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VyIERldGFpbCIsInJvbGUiOiJhZG1pbiIsImlzcyI6Ikd1ZGFuZyBNYW5hZ2VtZW50IiwiZXhwIjoxNzM0MTAwMDYzLCJpYXQiOjE3MzQwOTY0NjMsInVzZXJuYW1lIjoibXVpcyJ9.PiJO80j442HGo5UxTAooJG8zvT7wNxS-ZuNBtBygD2Q
+Accept: application/json
+Content-Type: application/json
+
+{
+  "name": "oreo",
+  "description": "Makanan ringan bergizi",
+  "price": 5000,
+  "category": "makanan",
+  "stock": 100
+}
+
+
+###
+
+PUT localhost:8080/api/barang/5bcc31d5-2681-4dfe-bc57-e33e8c270b8f
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VyIERldGFpbCIsInJvbGUiOiJhZG1pbiIsImlzcyI6Ikd1ZGFuZyBNYW5hZ2VtZW50IiwiZXhwIjoxNzM0MTAwMDYzLCJpYXQiOjE3MzQwOTY0NjMsInVzZXJuYW1lIjoibXVpcyJ9.PiJO80j442HGo5UxTAooJG8zvT7wNxS-ZuNBtBygD2Q
+Accept: application/json
+Content-Type: application/json
+
+{
+  "name": "oreo",
+  "description": "Makanan ringan bergizi dan berkhasiat",
+  "price": 5000,
+  "category": "makanan",
+  "stock": 100
+}
+
+
+###
+DELETE localhost:8080/api/barang/5bcc31d5-2681-4dfe-bc57-e33e8c270b8f
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VyIERldGFpbCIsInJvbGUiOiJhZG1pbiIsImlzcyI6Ikd1ZGFuZyBNYW5hZ2VtZW50IiwiZXhwIjoxNzM0MTAwMDYzLCJpYXQiOjE3MzQwOTY0NjMsInVzZXJuYW1lIjoibXVpcyJ9.PiJO80j442HGo5UxTAooJG8zvT7wNxS-ZuNBtBygD2Q
+
+###
+GET localhost:8080/api/supplier
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VyIERldGFpbCIsInJvbGUiOiJhZG1pbiIsImlzcyI6Ikd1ZGFuZyBNYW5hZ2VtZW50IiwiZXhwIjoxNzM0MTAwMDYzLCJpYXQiOjE3MzQwOTY0NjMsInVzZXJuYW1lIjoibXVpcyJ9.PiJO80j442HGo5UxTAooJG8zvT7wNxS-ZuNBtBygD2Q
+
+###
+GET localhost:8080/api/supplier/search?keyword=test
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VyIERldGFpbCIsInJvbGUiOiJhZG1pbiIsImlzcyI6Ikd1ZGFuZyBNYW5hZ2VtZW50IiwiZXhwIjoxNzM0MTAwMDYzLCJpYXQiOjE3MzQwOTY0NjMsInVzZXJuYW1lIjoibXVpcyJ9.PiJO80j442HGo5UxTAooJG8zvT7wNxS-ZuNBtBygD2Q
+
+###
+GET localhost:8080/api/supplier/f3869c18-9747-4909-8084-a60942d02942
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VyIERldGFpbCIsInJvbGUiOiJhZG1pbiIsImlzcyI6Ikd1ZGFuZyBNYW5hZ2VtZW50IiwiZXhwIjoxNzM0MTAwMDYzLCJpYXQiOjE3MzQwOTY0NjMsInVzZXJuYW1lIjoibXVpcyJ9.PiJO80j442HGo5UxTAooJG8zvT7wNxS-ZuNBtBygD2Q
+
+###
+POST localhost:8080/api/supplier
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VyIERldGFpbCIsInJvbGUiOiJhZG1pbiIsImlzcyI6Ikd1ZGFuZyBNYW5hZ2VtZW50IiwiZXhwIjoxNzM0MTAwMDYzLCJpYXQiOjE3MzQwOTY0NjMsInVzZXJuYW1lIjoibXVpcyJ9.PiJO80j442HGo5UxTAooJG8zvT7wNxS-ZuNBtBygD2Q
+Accept: application/json
+Content-Type: application/json
+
+{
+  "name": "Joko",
+  "address": "Jl kaki",
+  "contact": "0923214124"
+}
+
+###
+DELETE localhost:8080/api/supplier/6cf76328-1235-4cad-bf23-7af8c205c7cd
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VyIERldGFpbCIsInJvbGUiOiJhZG1pbiIsImlzcyI6Ikd1ZGFuZyBNYW5hZ2VtZW50IiwiZXhwIjoxNzM0MTAwMDYzLCJpYXQiOjE3MzQwOTY0NjMsInVzZXJuYW1lIjoibXVpcyJ9.PiJO80j442HGo5UxTAooJG8zvT7wNxS-ZuNBtBygD2Q
+
+###
+PUT localhost:8080/api/supplier/878aca81-dfca-42a9-a35b-cf010723282b
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VyIERldGFpbCIsInJvbGUiOiJhZG1pbiIsImlzcyI6Ikd1ZGFuZyBNYW5hZ2VtZW50IiwiZXhwIjoxNzM0MTAwMDYzLCJpYXQiOjE3MzQwOTY0NjMsInVzZXJuYW1lIjoibXVpcyJ9.PiJO80j442HGo5UxTAooJG8zvT7wNxS-ZuNBtBygD2Q
+Accept: application/json
+Content-Type: application/json
+
+{
+  "name": "Acong",
+  "contact": "0241241",
+  "address": "Jl Ke muara"
+}
+
+
+###
+GET localhost:8080/api/transaksi/count
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VyIERldGFpbCIsInJvbGUiOiJhZG1pbiIsImlzcyI6Ikd1ZGFuZyBNYW5hZ2VtZW50IiwiZXhwIjoxNzM0MTA0MDM4LCJpYXQiOjE3MzQxMDA0MzgsInVzZXJuYW1lIjoibXVpcyJ9.NHhwLKAqQ5MHsFRnT5l7n27-LZuPrVkAVB-1rQwaGgQ
+
+###
+GET localhost:8080/api/transaksi
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VyIERldGFpbCIsInJvbGUiOiJhZG1pbiIsImlzcyI6Ikd1ZGFuZyBNYW5hZ2VtZW50IiwiZXhwIjoxNzM0MTA0MDM4LCJpYXQiOjE3MzQxMDA0MzgsInVzZXJuYW1lIjoibXVpcyJ9.NHhwLKAqQ5MHsFRnT5l7n27-LZuPrVkAVB-1rQwaGgQ
+
+###
+GET localhost:8080/api/transaksi/top3-recent
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VyIERldGFpbCIsInJvbGUiOiJhZG1pbiIsImlzcyI6Ikd1ZGFuZyBNYW5hZ2VtZW50IiwiZXhwIjoxNzM0MTA0MDM4LCJpYXQiOjE3MzQxMDA0MzgsInVzZXJuYW1lIjoibXVpcyJ9.NHhwLKAqQ5MHsFRnT5l7n27-LZuPrVkAVB-1rQwaGgQ
+
+###
+GET localhost:8080/api/transaksi/e61425c0-b68a-4d69-b26f-127d6969e802
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VyIERldGFpbCIsInJvbGUiOiJhZG1pbiIsImlzcyI6Ikd1ZGFuZyBNYW5hZ2VtZW50IiwiZXhwIjoxNzM0MTA0MDM4LCJpYXQiOjE3MzQxMDA0MzgsInVzZXJuYW1lIjoibXVpcyJ9.NHhwLKAqQ5MHsFRnT5l7n27-LZuPrVkAVB-1rQwaGgQ
+
+###
+GET localhost:8080/api/transaksi/search?keyword=masuk
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VyIERldGFpbCIsInJvbGUiOiJhZG1pbiIsImlzcyI6Ikd1ZGFuZyBNYW5hZ2VtZW50IiwiZXhwIjoxNzM0MTA0MDM4LCJpYXQiOjE3MzQxMDA0MzgsInVzZXJuYW1lIjoibXVpcyJ9.NHhwLKAqQ5MHsFRnT5l7n27-LZuPrVkAVB-1rQwaGgQ
+
+###
+POST localhost:8080/api/transaksi/in
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VyIERldGFpbCIsInJvbGUiOiJhZG1pbiIsImlzcyI6Ikd1ZGFuZyBNYW5hZ2VtZW50IiwiZXhwIjoxNzM0MTA0NDY2LCJpYXQiOjE3MzQxMDA4NjYsInVzZXJuYW1lIjoibXVpcyJ9.FX2TPCxJ2AxM0Gn7iMgMdqWKrn3RzepQRphs3yJ2hUk
+Accept: application/json
+Content-Type: application/json
+
+{
+  "barangId": "17a035d6-329f-4b8f-b417-bdd99d7a6ea8",
+  "supplierId": "10f077e2-09b8-45e9-af5f-ba75ebcbcfa1",
+  "total": 23,
+  "date": 1734100818000,
+  "type": "masuk"
 }
 
 ###
 POST localhost:8080/api/transaksi/out
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VyIERldGFpbCIsInJvbGUiOiJhZG1pbiIsImlzcyI6Ikd1ZGFuZyBNYW5hZ2VtZW50IiwiZXhwIjoxNzM0MTA0NDY2LCJpYXQiOjE3MzQxMDA4NjYsInVzZXJuYW1lIjoibXVpcyJ9.FX2TPCxJ2AxM0Gn7iMgMdqWKrn3RzepQRphs3yJ2hUk
 Accept: application/json
 Content-Type: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VyIERldGFpbCIsImlzcyI6Ikd1ZGFuZyBNYW5hZ2VtZW50IiwiaWF0IjoxNzI4OTE0OTk4LCJ1c2VybmFtZSI6Impva28ifQ.o5uD349kRcgzbygAfAC6pSi7ciNqQDPJhN_7aTBnLI8
 
 {
-  "date": 1727538591,
-  "type": "keluar",
-  "barangId": "9297b81a-4c38-4738-839d-f85373e6f6c6",
+  "barangId": "17a035d6-329f-4b8f-b417-bdd99d7a6ea8",
   "supplierId": "10f077e2-09b8-45e9-af5f-ba75ebcbcfa1",
-  "total": 30
+  "total": 23,
+  "date": 1734100818000,
+  "type": "keluar"
 }
 
 ###
-DELETE http://localhost:8080/api/users/1ac01271-a238-4be0-8062-97931b986fee
-
-###
-PUT http://localhost:8080/api/users/1b905f3e-2c76-4739-90a4-925367944eaf
+PUT localhost:8080/api/transaksi/050f45cc-fa77-4dc8-9966-414c84eb5a20
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VyIERldGFpbCIsInJvbGUiOiJhZG1pbiIsImlzcyI6Ikd1ZGFuZyBNYW5hZ2VtZW50IiwiZXhwIjoxNzM0MTA0NDY2LCJpYXQiOjE3MzQxMDA4NjYsInVzZXJuYW1lIjoibXVpcyJ9.FX2TPCxJ2AxM0Gn7iMgMdqWKrn3RzepQRphs3yJ2hUk
 Accept: application/json
 Content-Type: application/json
 
 {
-  "username": "budi",
-  "password": "budi123",
-  "oldPassword": "budi"
+  "barangId": "dbecc724-e738-47a5-87d8-d5618b21ed5e",
+  "supplierId": "2851648d-3ad9-4e7b-ae91-40db34512466",
+  "total": 24,
+  "date": 1734100818000,
+  "type": "keluar"
 }
 
 ###
-POST localhost:8080/api/user/auth
+GET localhost:8080/api/transaksi/graph
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VyIERldGFpbCIsInJvbGUiOiJhZG1pbiIsImlzcyI6Ikd1ZGFuZyBNYW5hZ2VtZW50IiwiZXhwIjoxNzM0MTA1MTg2LCJpYXQiOjE3MzQxMDE1ODYsInVzZXJuYW1lIjoibXVpcyJ9.ALs__OKBGW5mO_khlRSHPp49m2B5uUbZotdT1VH_pwI
+
+
+###
+GET localhost:8080/api/laporan/stock_less?limit=20
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VyIERldGFpbCIsInJvbGUiOiJhZG1pbiIsImlzcyI6Ikd1ZGFuZyBNYW5hZ2VtZW50IiwiZXhwIjoxNzM0MTA1MTg2LCJpYXQiOjE3MzQxMDE1ODYsInVzZXJuYW1lIjoibXVpcyJ9.ALs__OKBGW5mO_khlRSHPp49m2B5uUbZotdT1VH_pwI
+
+
+###
+GET localhost:8080/api/laporan/suppliers
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VyIERldGFpbCIsInJvbGUiOiJhZG1pbiIsImlzcyI6Ikd1ZGFuZyBNYW5hZ2VtZW50IiwiZXhwIjoxNzM0MTA1MTg2LCJpYXQiOjE3MzQxMDE1ODYsInVzZXJuYW1lIjoibXVpcyJ9.ALs__OKBGW5mO_khlRSHPp49m2B5uUbZotdT1VH_pwI
+
+###
+GET localhost:8080/api/laporan/transaksi_by_type?type=masuk
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VyIERldGFpbCIsInJvbGUiOiJhZG1pbiIsImlzcyI6Ikd1ZGFuZyBNYW5hZ2VtZW50IiwiZXhwIjoxNzM0MTA1MTg2LCJpYXQiOjE3MzQxMDE1ODYsInVzZXJuYW1lIjoibXVpcyJ9.ALs__OKBGW5mO_khlRSHPp49m2B5uUbZotdT1VH_pwI
+
+###
+GET localhost:8080/api/laporan/transaksi_by_supplier?id=2851648d-3ad9-4e7b-ae91-40db34512466
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VyIERldGFpbCIsInJvbGUiOiJhZG1pbiIsImlzcyI6Ikd1ZGFuZyBNYW5hZ2VtZW50IiwiZXhwIjoxNzM0MTA1MTg2LCJpYXQiOjE3MzQxMDE1ODYsInVzZXJuYW1lIjoibXVpcyJ9.ALs__OKBGW5mO_khlRSHPp49m2B5uUbZotdT1VH_pwI
+
+
+###
+GET localhost:8080/api/laporan/transaksi_by_date?start=1728830418000&end=1734101998000
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VyIERldGFpbCIsInJvbGUiOiJhZG1pbiIsImlzcyI6Ikd1ZGFuZyBNYW5hZ2VtZW50IiwiZXhwIjoxNzM0MTA1MTg2LCJpYXQiOjE3MzQxMDE1ODYsInVzZXJuYW1lIjoibXVpcyJ9.ALs__OKBGW5mO_khlRSHPp49m2B5uUbZotdT1VH_pwI
+
+###
+GET localhost:8080/api/users
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VyIERldGFpbCIsInJvbGUiOiJhZG1pbiIsImlzcyI6Ikd1ZGFuZyBNYW5hZ2VtZW50IiwiZXhwIjoxNzM0MTA1MTg2LCJpYXQiOjE3MzQxMDE1ODYsInVzZXJuYW1lIjoibXVpcyJ9.ALs__OKBGW5mO_khlRSHPp49m2B5uUbZotdT1VH_pwI
+
+
+###
+GET localhost:8080/api/users/search?keyword=muis
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VyIERldGFpbCIsInJvbGUiOiJhZG1pbiIsImlzcyI6Ikd1ZGFuZyBNYW5hZ2VtZW50IiwiZXhwIjoxNzM0MTA1MTg2LCJpYXQiOjE3MzQxMDE1ODYsInVzZXJuYW1lIjoibXVpcyJ9.ALs__OKBGW5mO_khlRSHPp49m2B5uUbZotdT1VH_pwI
+
+###
+GET localhost:8080/api/users/25b31ce3-3873-4036-a9c8-7f366e12b00d
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VyIERldGFpbCIsInJvbGUiOiJhZG1pbiIsImlzcyI6Ikd1ZGFuZyBNYW5hZ2VtZW50IiwiZXhwIjoxNzM0MTA1MTg2LCJpYXQiOjE3MzQxMDE1ODYsInVzZXJuYW1lIjoibXVpcyJ9.ALs__OKBGW5mO_khlRSHPp49m2B5uUbZotdT1VH_pwI
+
+
+###
+PUT localhost:8080/api/users/25b31ce3-3873-4036-a9c8-7f366e12b00d
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VyIERldGFpbCIsInJvbGUiOiJhZG1pbiIsImlzcyI6Ikd1ZGFuZyBNYW5hZ2VtZW50IiwiZXhwIjoxNzM0MTA1MTg2LCJpYXQiOjE3MzQxMDE1ODYsInVzZXJuYW1lIjoibXVpcyJ9.ALs__OKBGW5mO_khlRSHPp49m2B5uUbZotdT1VH_pwI
 Accept: application/json
 Content-Type: application/json
 
 {
-  "username": "joko",
-  "password": "joko"
+  "username": "muis1",
+  "password": "muis1",
+  "oldPassword": "muis"
 }
+
+###
+GET localhost:8080/api/users
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VyIERldGFpbCIsInJvbGUiOiJvcGVyYXRvciIsImlzcyI6Ikd1ZGFuZyBNYW5hZ2VtZW50IiwiZXhwIjoxNzM0MTA1OTUzLCJpYXQiOjE3MzQxMDIzNTMsInVzZXJuYW1lIjoicWljb25nIn0.l6KvtvavmA5sPtfhixOg8Hr1rMKzwHloqn31KbbZFQg
+
+
+###
+GET localhost:8080/api/laporan/suppliers
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VyIERldGFpbCIsInJvbGUiOiJvcGVyYXRvciIsImlzcyI6Ikd1ZGFuZyBNYW5hZ2VtZW50IiwiZXhwIjoxNzM0MTA1OTUzLCJpYXQiOjE3MzQxMDIzNTMsInVzZXJuYW1lIjoicWljb25nIn0.l6KvtvavmA5sPtfhixOg8Hr1rMKzwHloqn31KbbZFQg
+
+
+###
+GET localhost:8080/api/users/search?keyword=' OR 1=1 --
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VyIERldGFpbCIsInJvbGUiOiJhZG1pbiIsImlzcyI6Ikd1ZGFuZyBNYW5hZ2VtZW50IiwiZXhwIjoxNzM0MTA1MTg2LCJpYXQiOjE3MzQxMDE1ODYsInVzZXJuYW1lIjoibXVpcyJ9.ALs__OKBGW5mO_khlRSHPp49m2B5uUbZotdT1VH_pwI
+
+
+###
+GET localhost:8080/api/laporan/suppliers

@@ -30,16 +30,25 @@ public class JwtFilter extends OncePerRequestFilter {
         if (authHeader != null && authHeader.startsWith("Bearer ")) {
             String jwt = authHeader.substring(7);
 
-            if(jwt.isBlank()){
+            if (jwt.isBlank()) {
                 throw new ServletException("JWT token is blank");
             } else {
                 try {
                     String username = jwtUtil.validateTokenAndRetrieveSubject(jwt);
+                    String role = jwtUtil.getRoleFromToken(jwt);
 
                     UserDetails userDetails = customUserDetailsService.loadUserByUsername(username);
-                    UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken = new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
 
-                    if(SecurityContextHolder.getContext().getAuthentication() == null){
+                    // Validasi role
+                    if (!userDetails.getAuthorities().stream()
+                            .anyMatch(auth -> auth.getAuthority().equals("ROLE_" + role))) {
+                        throw new ServletException("Role mismatch");
+                    }
+
+                    UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken =
+                            new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
+
+                    if (SecurityContextHolder.getContext().getAuthentication() == null) {
                         SecurityContextHolder.getContext().setAuthentication(usernamePasswordAuthenticationToken);
                     }
                 } catch (Exception e) {

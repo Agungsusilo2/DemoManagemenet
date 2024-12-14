@@ -1,7 +1,5 @@
 package org.example.demomanagemenet.supplier.controller;
 
-import org.example.demomanagemenet.barang.model.BarangResponse;
-import org.example.demomanagemenet.barang.model.ListBarangRequest;
 import org.example.demomanagemenet.supplier.entity.Supplier;
 import org.example.demomanagemenet.supplier.model.ListSupplierRequest;
 import org.example.demomanagemenet.supplier.model.SupplierRequest;

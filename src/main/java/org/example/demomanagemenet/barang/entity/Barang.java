@@ -22,21 +22,14 @@ import java.time.LocalDateTime;
 public class Barang {
     @Id
     private String id;
-
     private String name;
-
     private String category;
-
     private int price;
-
     private int stock;
-
     private String description;
-
     @CreationTimestamp
     @Column(name = "created_at", nullable = false, updatable = false)
     private LocalDateTime created;
-
     @UpdateTimestamp
     @Column(name = "updated_at", nullable = false)
     private LocalDateTime updated;

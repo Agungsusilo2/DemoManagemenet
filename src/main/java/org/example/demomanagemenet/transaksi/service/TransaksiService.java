@@ -2,7 +2,6 @@ package org.example.demomanagemenet.transaksi.service;
 
 import jakarta.persistence.criteria.Predicate;
 import org.example.demomanagemenet.barang.entity.Barang;
-import org.example.demomanagemenet.barang.model.BarangResponse;
 import org.example.demomanagemenet.barang.repository.BarangRepository;
 import org.example.demomanagemenet.model.ValidationService;
 import org.example.demomanagemenet.supplier.entity.Supplier;
@@ -178,20 +177,20 @@ public class TransaksiService {
         return count;
     }
 
-//    @Transactional(readOnly = true)
-//    public Map<LocalDate, Long> countByDateWeek() {
-//        Map<LocalDate, Long> dailyTransactionCounts = new HashMap<>();
-//        LocalDate now = LocalDate.now();
-//        for (int i = 0; i < 7; i++) {
-//            LocalDate currentDate = now.minusDays(i);
-//            long epochSecond = currentDate.atStartOfDay(ZoneOffset.UTC).toEpochSecond();
-//            Date date = new Date(epochSecond * 1000);  // Multiply by 1000 to convert from seconds to milliseconds
-//            long count = transaksiRepository.findAllByDateContainingOrderByDateAsc(date).stream().count();
-//            dailyTransactionCounts.put(currentDate, count);
-//        }
-//        return dailyTransactionCounts;
-//    }
+    @Transactional(readOnly = true)
+    public Map<Integer, Integer> getCountTotalInWeek() {
+        Map<Integer, Integer> countMap = new HashMap<>();
 
+        for (int i = 0; i < 7; i++) {
+            LocalDate date = LocalDate.now().minusDays(i);
+            long startOfDay = date.atStartOfDay(ZoneId.systemDefault()).toEpochSecond();
+            long endOfDay = date.atTime(23, 59, 59).atZone(ZoneId.systemDefault()).toEpochSecond();
+            long count = transaksiRepository.findByDateBetween(startOfDay, endOfDay).stream().count();
+            countMap.put(i, Math.toIntExact(count)); 
+        }
+
+        return countMap;
+    }
 
     @Transactional(readOnly = true)
     public List<TransaksiResponse> getTop3RecentTransaksi() {

@@ -5,6 +5,8 @@ import org.example.demomanagemenet.transaksi.entity.Transaksi;
 import org.example.demomanagemenet.transaksi.model.Type;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.Date;
@@ -16,5 +18,4 @@ public interface TransaksiRepository extends JpaRepository<Transaksi, String>, J
     List<Transaksi> findByType(Type type);
     List<Transaksi> findBySupplier(Supplier supplier);
     List<Transaksi> findTop3ByOrderByDateDesc();
-//    List<Transaksi> findAllByDateContainingOrderByDateAsc(Date date);
 }

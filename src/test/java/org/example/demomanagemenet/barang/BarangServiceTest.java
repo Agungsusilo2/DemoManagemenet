@@ -101,4 +101,16 @@ public class BarangServiceTest {
         all.forEach(System.out::println);
     }
 
+    @Test
+    public void testGetAll(){
+        List<BarangResponse> stockBarang = barangService.getStockBarang();
+        Assertions.assertNotNull(stockBarang);
+
+        Long count = barangService.getCount();
+        Assertions.assertNotNull(count);
+
+        List<BarangResponse> barangStockLessDate = barangService.getBarangStockLessDate();
+        Assertions.assertNotNull(barangStockLessDate);
+    }
+
 }

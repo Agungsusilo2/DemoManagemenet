@@ -1,14 +1,12 @@
 package org.example.demomanagemenet.user;
 
 import jakarta.validation.ConstraintViolationException;
-import org.example.demomanagemenet.barang.service.BarangService;
 import org.example.demomanagemenet.user.model.LoginRequest;
 import org.example.demomanagemenet.user.model.RegisterRequest;
 import org.example.demomanagemenet.user.model.UpdateUserRequest;
 import org.example.demomanagemenet.user.service.UserService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import org.mockito.InjectMocks;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.web.server.ResponseStatusException;

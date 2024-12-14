@@ -2,7 +2,6 @@ package org.example.demomanagemenet.config;
 
 import jakarta.servlet.http.HttpServletResponse;
 import org.example.demomanagemenet.security.JwtFilter;
-import org.example.demomanagemenet.user.service.CustomUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -28,6 +27,8 @@ public class SecurityConfig {
                 .and()
                 .authorizeHttpRequests(authorize -> authorize
                         .requestMatchers("/api/user/register", "/api/user/auth").permitAll()
+                        .requestMatchers("/api/barang/**", "/api/supplier/**").hasAnyRole("admin", "operator")
+                        .requestMatchers("/api/laporan/**", "/api/users/**").hasRole("admin")
                         .anyRequest().authenticated()
                 )
                 .exceptionHandling()
